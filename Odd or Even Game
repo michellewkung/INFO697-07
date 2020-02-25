@@ -1,0 +1,33 @@
+# Add your Python code here
+from microbit import *
+import random
+
+#Random Number Generation Loop
+while True:
+    #Instruction
+    display.scroll('Press A for even, B for odd.')
+    
+    #Generate random number
+    number = random.randint(0, 100)
+    
+    #Show number
+    display.show(str(number))
+    
+    #Main game loop
+    while True:
+        if number % 2 == 0 and button_b.was_pressed():
+            display.show(Image.HAPPY)
+            sleep(1000)
+            break
+        elif number % 2 == 0 and button_a.was_pressed():
+            display.show(Image.SAD)
+            sleep(1000)
+            break
+        elif number % 2 == 1 and button_a.was_pressed():
+            display.show(Image.HAPPY)
+            sleep(1000)
+            break
+        elif number % 2 == 1 and button_b.was_pressed():
+            display.show(Image.SAD)
+            sleep(1000)
+            break
