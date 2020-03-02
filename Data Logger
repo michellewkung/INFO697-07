@@ -1,0 +1,21 @@
+# Write your code here :-)
+from microbit import *
+import os
+
+# calibrate microbit compass
+compass.calibrate
+
+while True:
+    
+    # variables
+    t = temperature()
+    ch = compass.heading()
+    readings = (str(t)) + "," + (str(ch))
+    
+    # create csv file
+    with open('dataLogger.txt', 'w') as myFile:
+        myFile.write(readings)
+    # 10 second interval
+    
+    print(readings)
+    
